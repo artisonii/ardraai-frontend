@@ -110,8 +110,8 @@ const Weather = () => {
                 <div className="justify-evenly mb-2 text-white cursor-pointer py-4 text-2xl 
                 hidden
                 sm:flex">
-                    {cities.map((ele) => {
-                        return <p onClick={() => setCity(ele)} className={city === ele ? "text-blue-800" : ""}>{ele} </p>
+                    {cities.map((ele, ind) => {
+                        return <p onClick={() => setCity(ele)} className={city === ele ? "text-blue-800" : ""} key={ind}>{ele} </p>
                     })}
                 </div>
 
@@ -123,8 +123,8 @@ const Weather = () => {
 
                 <div>
                     {isMenuOpen && <div className="text-white cursor-pointer text-2xl bg-blue-600 py-2 fixed top-10 z-20 left-0 right-0 sm:hidden">
-                        {cities.map((ele) => {
-                            return <p onClick={() => setCity(ele)} className={city === ele ? "text-blue-800" : ""}>{ele} </p>
+                        {cities.map((ele, ind) => {
+                            return <p onClick={() => { setCity(ele); setIsMenuOpen(false) }} className={city === ele ? "text-blue-800" : ""} key={ind}>{ele} </p>
                         })}
                     </div>}
                 </div>
